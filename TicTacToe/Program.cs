@@ -22,6 +22,7 @@
             // completed turn counter
             int totalTurns = 0;
 
+            // tie flag
             bool tie = false;
 
             // start game loop
@@ -135,9 +136,46 @@
 
             // diagonal
             // ugh why i dont want to
+            // this will be harcoded because screw this
+            if (!won)
+            {
+                if (board[0, 0] == symbol)
+                {
+                    winCount++;
+                }
+                if (board[1, 1] == symbol)
+                {
+                    winCount++;
+                }
+                if (board[2, 2] == symbol)
+                {
+                    winCount++;
+                }
+                if (winCount == 3)
+                {
+                    won = true;
+                }
+                winCount = 0;
+                if (board[2, 0] == symbol)
+                {
+                    winCount++;
+                }
+                if (board[1, 1] == symbol)
+                {
+                    winCount++;
+                }
+                if (board[0, 2] == symbol)
+                {
+                    winCount++;
+                }
+                if (winCount == 3)
+                {
+                    won = true;
+                }
+            }
 
             // tie
-            if (total == 9)
+            if (total == 9 && !won)
             {
                 tie = true;
             }
