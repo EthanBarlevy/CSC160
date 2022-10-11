@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             // create the game board
-            char[,] board = new char[3, 3];
+            char[,] board = { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
 
             // create an array of player names
             string[] names = { "Player 1", "Player 2" };
@@ -22,16 +22,16 @@
             // completed turn counter
             int totalTurns = 0;
 
-            // tie flag
             bool tie = false;
 
             // start game loop
             do
             {
                 DisplayBoard(board);
-                NextTurn(names, turn, board, symbols);
-                CheckWin(board, symbols[turn]);
-                DisplayEnding();
+                NextTurn(names, ref turn, ref board, symbols, ref totalTurns);
+                done = DisplayEnding(CheckWin(board, symbols[turn], totalTurns, ref tie), names, turn, tie);
+                if (turn == 0) { turn++; }
+                else { turn--; }
 
             } while (!done);
         }
@@ -43,17 +43,23 @@
             {
                 for (int col = 0; col < b.GetLength(1); col++)
                 {
-                    Console.WriteLine(" {0} ", b[row, col]);
-                    Console.WriteLine("|"); // i knew that this wouldnt work
+                    Console.Write(" {0} ", b[row, col]);
+                    if (col != b.GetLength(1) - 1)
+                    { 
+                        Console.Write("|");
+                    }
                 }
                 if (row != b.GetLength(0) - 1)
                 { 
+                    Console.WriteLine();
                     Console.WriteLine("-----------");
                 }
             }
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
-        static void NextTurn(string[] name, int turn, char[,] board, char[] symbols)
+        static void NextTurn(string[] name, ref int turn, ref char[,] board, char[] symbols, ref int total)
         {
             int row, col;
             bool valid = false;
@@ -65,10 +71,21 @@
                 Console.WriteLine("{0}, enter col (1-3): ", name[turn]);
                 bool valCol = int.TryParse(Console.ReadLine(), out col);
 
+                if (row > 3 || row < 0 || col > 3 || col < 0)
+                { 
+                    valRow = false;
+                }
+
+                if (board[row - 1, col - 1] != ' ')
+                {
+                    valCol = false;
+                }
+
                 if (valRow && valCol)
                 {
                     valid = true;
-                    board[row-1, col-1] = symbols[turn];
+                    board[row - 1, col - 1] = symbols[turn];
+                    total++;
                 }
                 else
                 {
@@ -78,18 +95,69 @@
             } while (!valid);
         }
 
-        static bool CheckWin(char[,] board, char symbol)
+        static bool CheckWin(char[,] board, char symbol, int total, ref bool tie)
         {
-            if (board[0, 0] == symbol)
-            { 
-                 // unfinished this is just hard coded rn
+            bool won = false;
+            short winCount = 0;
+            // horizontal
+            for (short row = 0; row < board.GetLength(0); row++)
+            {
+                for (short col = 0; col < board.GetLength(1); col++)
+                {
+                    if (board[row, col] == symbol)
+                    { 
+                        winCount++;
+                    }
+                }
+                if (winCount == 3)
+                {
+                    won = true;
+                }
+                winCount = 0;
             }
-            return false;
+
+            // vertical
+            for (short col = 0; col < board.GetLength(0); col++)
+            {
+                for (short row = 0; row < board.GetLength(1); row++)
+                {
+                    if (board[row, col] == symbol)
+                    {
+                        winCount++;
+                    }
+                }
+                if (winCount == 3)
+                {
+                    won = true;
+                }
+                winCount = 0;
+            }
+
+            // diagonal
+            // ugh why i dont want to
+
+            // tie
+            if (total == 9)
+            {
+                tie = true;
+            }
+
+            return won;
         }
 
-        static void DisplayEnding()
-        { 
-            
+        static bool DisplayEnding(bool win, string[] names, int turn, bool tie)
+        {
+            if (win && !tie)
+            {
+                Console.WriteLine("{0} Wins!", names[turn]);
+                return true;
+            }
+            if (tie)
+            {
+                Console.WriteLine("Cats Game");
+                return true;
+            }
+            return false;
         }
     }
 }
