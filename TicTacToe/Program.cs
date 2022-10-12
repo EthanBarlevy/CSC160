@@ -73,14 +73,16 @@
                 Console.WriteLine("{0}, enter col (1-3): ", name[turn]);
                 bool valCol = int.TryParse(Console.ReadLine(), out col);
 
-                if (row > 3 || row < 0 || col > 3 || col < 0)
+                if (valRow && valCol)
                 { 
-                    valRow = false;
-                }
-
-                if (board[row - 1, col - 1] != ' ')
-                {
-                    valCol = false;
+                    if (row > 3 || row < 0 || col > 3 || col < 0)
+                    {
+                        valRow = false;
+                    }
+                    else if (board[row - 1, col - 1] != ' ')
+                    {
+                        valCol = false;
+                    }
                 }
 
                 if (valRow && valCol)
