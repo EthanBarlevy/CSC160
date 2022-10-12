@@ -28,9 +28,10 @@
             // start game loop
             do
             {
+                // i refuse to put all of the code in main
                 DisplayBoard(board);
                 NextTurn(names, ref turn, ref board, symbols, ref totalTurns);
-                done = DisplayEnding(CheckWin(board, symbols[turn], totalTurns, ref tie), names, turn, tie);
+                done = DisplayEnding(CheckWin(board, symbols[turn], totalTurns, ref tie), names, turn, tie, board);
                 if (turn == 0) { turn++; }
                 else { turn--; }
 
@@ -183,8 +184,12 @@
             return won;
         }
 
-        static bool DisplayEnding(bool win, string[] names, int turn, bool tie)
+        static bool DisplayEnding(bool win, string[] names, int turn, bool tie, char[,] b)
         {
+            if (win || tie)
+            {
+                DisplayBoard(b);
+            }
             if (win && !tie)
             {
                 Console.WriteLine("{0} Wins!", names[turn]);
