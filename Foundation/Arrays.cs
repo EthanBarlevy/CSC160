@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +45,49 @@ namespace Foundation
             object[] things = new object[] { 10, "owo", 1.5f }; // everything is an object so this works
 
 
+
+            int[] numbers = { 9, 1, 7, -6, 4, 8 };
+
+            //WriteArr(numbers);
+            //WriteArr(numbers[..3]); // from begin to end (first three elements)
+            //WriteArr(numbers[1..4]); // 3 numbers starting from the item im position 1
+            //WriteArr(numbers[4..]); // all numbers after 4
+
+            //Array.Reverse(numbers);
+            //WriteArr(numbers);
+            //Array.Sort(numbers);
+            //WriteArr(numbers);
+
+            //Console.WriteLine("index of 2: {0}", Array.IndexOf(numbers, 2));
+
+            Console.WriteLine("numbers less than 4:");
+            // takes a function that returns true false (predicate)
+            // builds an array out of the valid elements
+            WriteArr(Array.FindAll(numbers, lessthanfour)); // this is mega gross
+
+            // jagged array
+            int[][] jagged = new int[3][];
+            jagged[0] = new int[] { 0, 1, 2 };
+            jagged[1] = new int[] { 0, 1, 2, 3 };
+            jagged[2] = new int[] { 0, 1, 2, 3, 4, 5, 6, 7 };
+
+
+
+            static bool lessthanfour(int val)
+            {
+                return val < 4;
+            }
+
+            static void WriteArr(int[] vals)
+            {
+                //foreach (int val in vals)
+                //{
+                //    Console.Write(val + " ");
+                //}
+                //Console.WriteLine();
+
+                Console.WriteLine(String.Join(", ", vals));
+            }
         }
     }
 }
