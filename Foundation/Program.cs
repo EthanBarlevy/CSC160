@@ -16,7 +16,14 @@
             //ValueReference.Engage();
             //Parameters.DoIt();
             //Strings.Start();
-            Arrays.Showcase();
+            //Arrays.Showcase();
+            ConsoleLibrary.IO.GetConsoleInt("int", 1, 3);
+            ConsoleLibrary.IO.GetConsoleFloat("float", 1, 3);
+            ConsoleLibrary.IO.GetConsoleBool("bool");
+            ConsoleLibrary.IO.GetConsoleChar("char");
+            ConsoleLibrary.IO.GetConsoleString("string");
+
+            //ConsoleLibrary.IO.GetConsoleMenu({ "owo", "owo"});
         }
     }
 }
