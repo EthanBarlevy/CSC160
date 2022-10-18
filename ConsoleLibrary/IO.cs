@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace ConsoleLibrary
 {
@@ -58,7 +59,6 @@ namespace ConsoleLibrary
             return value;
         }
 
-
         public static bool GetConsoleBool(string str)
         {
             bool valid;
@@ -103,7 +103,8 @@ namespace ConsoleLibrary
             do
             { 
                 value = Console.ReadLine();
-                if (value != null) { valid = true; }
+                if (value != null && value != "") { valid = true; }
+                else { Console.WriteLine("Invalid string"); }
             } while (!valid);
 
             return value;
