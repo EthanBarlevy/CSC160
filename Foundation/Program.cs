@@ -25,8 +25,9 @@
             //string[] options = { "owo", "uwu", "ewe", "awa" };
             //int selection = ConsoleLibrary.IO.GetConsoleMenu(options);
             //Console.WriteLine(selection);
+            //Classes.go();
 
-            Classes.go();
+
         }
     }
 }

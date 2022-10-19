@@ -18,9 +18,23 @@ namespace Foundation
             //Math mat = new Math(); 
             float diam = Math.CalcCircumference(4);
 
-            Student millie = new Student();
-            millie.Name = "millie"; // uses getter
-            Console.WriteLine($"name is: {millie.Name}");
+            //Student millie = new Student();
+            //millie.Name = "millie"; // uses getter
+            //Console.WriteLine($"name is: {millie.Name}");
+            //millie.GPA = 10f;
+            //Console.WriteLine($"millie's gpa: {millie.GPA}");
+            //millie.GPA = 3.6f;
+            //Console.WriteLine($"millie's gpa: {millie.GPA}");
+            // defaul value of age is used
+            //Console.WriteLine($"millie's age: {millie.Age}");
+            // allows for formatting
+            //Console.WriteLine("millie's age: {0:0.0}", millie.Age);
+
+            Student chad = new Student("chad", 37, 2.1f, 22);
+
+            chad.HowManyStudents();
+
+            Alumni a = new Alumni("giga", 2.5f, 25, 33, 2020);
         }
     }
 
@@ -72,25 +86,50 @@ namespace Foundation
 
         public Student()
         {
-            Age = 18;
+            //Age = 18;
             name = "bob";
-            Console.WriteLine("student constructor 0 params");
+            //Console.WriteLine("student constructor 0 params");
             numberofstudents++;
         }
 
-        public Student(string name, int cohort, float gpa, float gPA, int age)
+        public Student(string name, int cohort, float gPA, int age)
         {
             Name = name;
             this.cohort = cohort;
-            this.gpa = gpa;
             GPA = gPA;
             Age = age;
-            Console.WriteLine("student constructor all params");
+            numberofstudents++;
+            //Console.WriteLine("student constructor all params");
         }
 
         public void HowManyStudents() 
         {
             Console.WriteLine($"number of students: {numberofstudents}");
+        }
+    }
+
+
+    // access levels
+    // public - everyone
+    // private - only the owner
+    // protected - owner and children
+    // internal - all in the project
+
+    class Alumni : Student 
+    {
+        private int yearGraduated;
+        public Alumni()
+        {
+            Console.WriteLine("derived constructor");
+            Console.WriteLine("name: {0}", base.name);
+            Console.WriteLine("graduated: {0}", yearGraduated);
+        }
+
+        public Alumni(string name, float gPA, int cohort, int age, int graduated) : base(name, cohort, gPA, age)
+        {
+            Console.WriteLine("params constructor");
+            this.yearGraduated = graduated;
+            Console.WriteLine("grad: {0}", yearGraduated);
         }
     }
 }
