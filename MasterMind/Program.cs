@@ -28,15 +28,19 @@ namespace MasterMind
             Console.ResetColor();
 
             //ask for difficulty
-            int difficulty = ConsoleLibrary.IO.GetConsoleMenu();
+            Console.WriteLine("Choose a difficulty");
+            int difficulty = MMLib.GetConsoleMenu(new List<string> { "Easy: 4 colors", "Medium: 6 colors", "Hard: 8 colors" });
+
             //ask for maxTurns of turns to guess it
+            int maxTurns = MMLib.GetConsoleInt("How many attempts (1-50)?", 1, 50);
 
             //store the maxPegs based on difficulty
-
+            int maxPegs = 2 + 2 * difficulty;
             //Generate an answer
+            List<int> answer = MMLib.GenerateAnswer(maxPegs);
 
             //show cheat? 
-            //MMLib.Cheat(answer, pegList);
+            MMLib.Cheat(answer, pegList);
 
             //loop while !gameWon && maxTurns != 0
             //  get user attempt
@@ -44,10 +48,31 @@ namespace MasterMind
             //  add the attempt to the attempt list
             //  determin if the game has been won or not
             //  reduce the maxTurns
+            bool gameWon = false;
+            do
+            {
+                Attempt attempt = GetAttemptFromUser(maxPegs, allAttempts, maxTurns);
+                CheckAttempt(attempt, answer);
+                allAttempts.Add(attempt);
+                if (attempt.CorrectAnswerCount == maxPegs) gameWon = true;
+                maxTurns--;
+
+            } while (!gameWon && maxTurns != 0);
 
             //If won, display Game Won!
             //If lost, show game loss
             //show the correct answer
+            if (gameWon)
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.WriteLine("You Win!");
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("You Loose!");
+            }
+            MMLib.ShowAnswer(answer, pegList, "c");
         }
 
         static Attempt GetAttemptFromUser(int maxPegs, List<Attempt> allAttempts, int maxTurns)
@@ -64,7 +89,17 @@ namespace MasterMind
             //Return the attempt when done
 
             Attempt attempt = new Attempt();
-
+            List<string> colors = MMLib.GetColorOptions(maxPegs, pegList);
+            for (int i = 0; i < maxPegs; i++)
+            {
+                Console.Clear();
+                Console.WriteLine($"{maxTurns} attempts left");
+                MMLib.ShowAttempts(allAttempts, pegList, "c");
+                MMLib.ShowChosenPegs(attempt, pegList);
+                Console.WriteLine("Choose a color:");
+                int peg = MMLib.GetConsoleMenu(colors);
+                attempt.AttemptList.Add(peg - 1);
+            }
             return attempt;
         }
 
@@ -73,6 +108,13 @@ namespace MasterMind
         {
             //Check the attempt.AttemptList to see if they got a match to the answer
             //If a peg is correct, increment the attempt.CorrectAnswerCount
+            for (int i = 0; i < answer.Count; i++)
+            {
+                if (attempt.AttemptList[i] == answer[i])
+                {
+                    attempt.CorrectAnswerCount++;
+                }
+            }
         }
     }
 }
