@@ -26,7 +26,7 @@
             //int selection = ConsoleLibrary.IO.GetConsoleMenu(options);
             //Console.WriteLine(selection);
             //Classes.go();
-
+            Inheritence.go();
 
         }
     }
