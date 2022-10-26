@@ -26,8 +26,8 @@
             //int selection = ConsoleLibrary.IO.GetConsoleMenu(options);
             //Console.WriteLine(selection);
             //Classes.go();
-            Inheritence.go();
-
+            //Inheritence.go();
+            VirtualMeathods.virtualMeathods();
         }
     }
 }
