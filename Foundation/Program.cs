@@ -27,7 +27,8 @@
             //Console.WriteLine(selection);
             //Classes.go();
             //Inheritence.go();
-            VirtualMeathods.virtualMeathods();
+            //Generics.start();
+            ExtensionMeathods.owo();
         }
     }
 }
