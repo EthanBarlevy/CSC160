@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterMindLibrary", "Master
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MasterMind", "MasterMind\MasterMind.csproj", "{7EB37578-5606-4EC3-BEE4-444A0B7D6CCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms", "WinForms\WinForms.csproj", "{28256A2C-93CA-41BE-A654-ED7352A4670C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7EB37578-5606-4EC3-BEE4-444A0B7D6CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EB37578-5606-4EC3-BEE4-444A0B7D6CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EB37578-5606-4EC3-BEE4-444A0B7D6CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28256A2C-93CA-41BE-A654-ED7352A4670C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28256A2C-93CA-41BE-A654-ED7352A4670C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28256A2C-93CA-41BE-A654-ED7352A4670C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28256A2C-93CA-41BE-A654-ED7352A4670C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
