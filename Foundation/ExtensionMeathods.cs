@@ -15,12 +15,15 @@ namespace Foundation
             Console.WriteLine("size of {0} is {1}", strmsg, strmsg.Length);
 
             Console.WriteLine($"is fist letter of {strmsg} capital? {strmsg.isFirstCap()}");
+            Console.WriteLine(strmsg.AppendToEnd(" from wisconson."));
         }
     }
 
     public static class stringHelper
     {
-        public static bool isFirstCap(this string strincoming)
+        // add functionality to default classes
+        // done by adding this before the variable
+        public static bool isFirstCap(/**/this/**/ string strincoming)
         { 
             return char.IsUpper(strincoming[0]);
         }
