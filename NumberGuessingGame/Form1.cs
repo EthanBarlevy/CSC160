@@ -48,7 +48,7 @@ namespace NumberGuessingGame
         {
             answer = random.Next(1, intRandomMax + 1);
             txtGuess.Enabled = true;
-            btnStart.Enabled = false;
+            btnStart.Text = "RESET";
         }
 
         private void GameWon()
