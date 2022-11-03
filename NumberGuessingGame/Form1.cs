@@ -39,6 +39,7 @@ namespace NumberGuessingGame
             }
 
             txtGuess.Enabled = false;
+            txtGuess.Text = "00";
             btnStart.Enabled = true;
             btnStart.Text = "START";
             numGuess = 0;
