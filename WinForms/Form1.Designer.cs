@@ -31,6 +31,8 @@
             this.btnclick = new System.Windows.Forms.Button();
             this.lbllabel1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // btnclick
@@ -62,11 +64,31 @@
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 25;
+            this.listBox1.Items.AddRange(new object[] {
+            "Shrek",
+            "Bee Movie",
+            "Shrek 2",
+            "spooder mans"});
+            this.listBox1.Location = new System.Drawing.Point(53, 101);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(149, 179);
+            this.listBox1.TabIndex = 3;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lbllabel1);
             this.Controls.Add(this.btnclick);
@@ -83,5 +105,7 @@
         private Button btnclick;
         private Label lbllabel1;
         private TextBox textBox1;
+        private ListBox listBox1;
+        private OpenFileDialog openFileDialog1;
     }
 }

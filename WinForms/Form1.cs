@@ -29,5 +29,11 @@ namespace WinForms
         {
             MessageBox.Show(e.KeyCode.ToString());
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox lb = (ListBox)sender;
+            lbllabel1.Text = lb.SelectedItem.ToString();
+        }
     }
 }
