@@ -13,5 +13,11 @@ namespace WPF
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            global.gpanel = new panel();
+            global.gpanel.Title = "Panels form";
+            global.gpanel.Show();
+        }
     }
 }
