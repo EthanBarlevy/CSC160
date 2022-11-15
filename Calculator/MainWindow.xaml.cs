@@ -26,8 +26,8 @@ namespace Calculator
         }
 
         double gFirstDouble = double.MinValue;
+        double gSecondDouble = double.MinValue;
         char gOperation = ' ';
-        bool addedOperation = false;
 
         private void Click(object sender, RoutedEventArgs e)
         {
@@ -44,19 +44,31 @@ namespace Calculator
                 {
                     case "ce":
                         content = "";
+                        if (gFirstDouble == double.MinValue || gSecondDouble == double.MinValue)
+                        { 
+                            gFirstDouble = double.MinValue;
+                            gSecondDouble = double.MinValue;
+                        }
+                        if (gOperation != ' ')
+                        {
+                            gOperation = ' ';
+                        }
                         break;
                     case "x2":
                         SetFirstDouble();
+                        content = "";
                         gOperation = 'x';
 
                         break;
                     case "mod":
                         SetFirstDouble();
+                        content = "";
                         gOperation = '%';
 
                         break;
                     case "dev":
                         SetFirstDouble();
+                        content = "";
                         gOperation = '/';
 
                         break;
@@ -74,6 +86,7 @@ namespace Calculator
                         break;
                     case "mul":
                         SetFirstDouble();
+                        content = "";
                         gOperation = '*';
 
                         break;
@@ -91,6 +104,7 @@ namespace Calculator
                         break;
                     case "sub":
                         SetFirstDouble();
+                        content = "";
                         gOperation = '-';
 
                         break;
@@ -108,6 +122,7 @@ namespace Calculator
                         break;
                     case "add":
                         SetFirstDouble();
+                        content = "";
                         gOperation = '+';
 
                         break;
@@ -117,22 +132,50 @@ namespace Calculator
                         
                         break;
                     case "zer":
-                        content += "0";
+                        if(CharExists(content, '.')) content += "0";
+                        else if (!content.StartsWith('0')) content += "0";
                         
                         break;
                     case "swp":
-                        if(!CharExists(content, '-')) content = "-" + content;
-                        else if (CharExists(content, '-')) content = content.Replace('-', ' ');
+                        if (content.Length > 0)
+                        { 
+                            if(double.Parse(content) != 0)
+                            {
+                                if(!CharExists(content, '-')) content = "-" + content;
+                                else if (CharExists(content, '-')) content = content.Replace('-', ' ');
+                            }
+                        }
 
                         break;
                     case "equ":
-                        if (gOperation != ' ')
+                        if (gFirstDouble != double.MinValue)
+                        {
+                            gSecondDouble = double.Parse(content);
+                        }
+                            if (gOperation != ' ')
                         {
                             if (gFirstDouble != double.MinValue)
                             { 
                                 switch (gOperation) 
-                                { 
-                                    
+                                {
+                                    case 'x':
+                                        content = Math.Pow(gFirstDouble, gSecondDouble).ToString();
+                                        break;
+                                    case '*':
+                                        content = (gFirstDouble * gSecondDouble).ToString();
+                                        break;
+                                    case '/':
+                                        content = (gFirstDouble / gSecondDouble).ToString();
+                                        break;
+                                    case '+':
+                                        content = (gFirstDouble + gSecondDouble).ToString();
+                                        break;
+                                    case '-':
+                                        content = (gFirstDouble - gSecondDouble).ToString();
+                                        break;
+                                    case '%':
+                                        content = (gFirstDouble % gSecondDouble).ToString();
+                                        break;
                                 }
                             }
                         }
@@ -154,6 +197,7 @@ namespace Calculator
         private void SetFirstDouble()
         { 
             gFirstDouble = double.Parse((string)Output.Content);
+            Output.Content = "";
         }
     }
 }

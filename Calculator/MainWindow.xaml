@@ -5,15 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Calculator" Height="500" Width="300"
+        Title="Calculator" Height="480" Width="300"
         Background="#000">
     <DockPanel>
-        <Label FontSize="50" Foreground="White"
+        <Label FontSize="60" Foreground="White"
                HorizontalAlignment="Right" DockPanel.Dock="Top"
                Content="" Name="Output"/>
-        <Label FontSize="20" Foreground="White"
-               HorizontalAlignment="Right" DockPanel.Dock="Top"
-               Content=""/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -31,7 +28,7 @@
             <Button Grid.Column="0" Grid.Row="0" Margin="3"
                     Content="CE" FontSize="25" Name="ce" Click="Click"/>
             <Button Grid.Column="1" Grid.Row="0" Margin="3"
-                    Content="x^2" FontSize="25" Name="x2" Click="Click"/>
+                    Content="x^y" FontSize="25" Name="x2" Click="Click"/>
             <Button Grid.Column="2" Grid.Row="0" Margin="3"
                     Content="%" FontSize="25" Name="mod" Click="Click"/>
             <Button Grid.Column="3" Grid.Row="0" Margin="3"
