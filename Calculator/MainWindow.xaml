@@ -10,7 +10,7 @@
     <DockPanel>
         <Label FontSize="50" Foreground="White"
                HorizontalAlignment="Right" DockPanel.Dock="Top"
-               Content=""/>
+               Content="" Name="Output"/>
         <Label FontSize="20" Foreground="White"
                HorizontalAlignment="Right" DockPanel.Dock="Top"
                Content=""/>
@@ -29,45 +29,45 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Grid.Row="0" Margin="3"
-                    Content="CE" FontSize="25"/>
+                    Content="CE" FontSize="25" Name="ce" Click="Click"/>
             <Button Grid.Column="1" Grid.Row="0" Margin="3"
-                    Content="x^2" FontSize="25"/>
+                    Content="x^2" FontSize="25" Name="x2" Click="Click"/>
             <Button Grid.Column="2" Grid.Row="0" Margin="3"
-                    Content="%" FontSize="25"/>
+                    Content="%" FontSize="25" Name="mod" Click="Click"/>
             <Button Grid.Column="3" Grid.Row="0" Margin="3"
-                    Content="/" FontSize="25"/>
+                    Content="/" FontSize="25" Name="dev" Click="Click"/>
             <Button Grid.Column="0" Grid.Row="1" Margin="3"
-                    Content="7" FontSize="25"/>
+                    Content="7" FontSize="25" Name="sev" Click="Click"/>
             <Button Grid.Column="1" Grid.Row="1" Margin="3"
-                    Content="8" FontSize="25"/>
+                    Content="8" FontSize="25" Name="eig" Click="Click"/>
             <Button Grid.Column="2" Grid.Row="1" Margin="3"
-                    Content="9" FontSize="25"/>
+                    Content="9" FontSize="25" Name="nin" Click="Click" />
             <Button Grid.Column="3" Grid.Row="1" Margin="3"
-                    Content="*" FontSize="25"/>
+                    Content="*" FontSize="25" Name="mul" Click="Click" />
             <Button Grid.Column="0" Grid.Row="2" Margin="3"
-                    Content="4" FontSize="25"/>
+                    Content="4" FontSize="25" Name="fou" Click="Click" />
             <Button Grid.Column="1" Grid.Row="2" Margin="3"
-                    Content="5" FontSize="25"/>
+                    Content="5" FontSize="25" Name="fiv" Click="Click" />
             <Button Grid.Column="2" Grid.Row="2" Margin="3"
-                    Content="6" FontSize="25"/>
+                    Content="6" FontSize="25" Name="six" Click="Click" />
             <Button Grid.Column="3" Grid.Row="2" Margin="3"
-                    Content="-" FontSize="25"/>
+                    Content="-" FontSize="25" Name="sub" Click="Click" />
             <Button Grid.Column="0" Grid.Row="3" Margin="3"
-                    Content="1" FontSize="25"/>
+                    Content="1" FontSize="25" Name="one" Click="Click" />
             <Button Grid.Column="1" Grid.Row="3" Margin="3"
-                    Content="2" FontSize="25"/>
+                    Content="2" FontSize="25" Name="two" Click="Click" />
             <Button Grid.Column="2" Grid.Row="3" Margin="3"
-                    Content="3" FontSize="25"/>
+                    Content="3" FontSize="25" Name="thr" Click="Click" />
             <Button Grid.Column="3" Grid.Row="3" Margin="3"
-                    Content="+" FontSize="25"/>
+                    Content="+" FontSize="25" Name="add" Click="Click" />
             <Button Grid.Column="0" Grid.Row="4" Margin="3"
-                    Content="." FontSize="25"/>
+                    Content="." FontSize="25" Name="dot" Click="Click" />
             <Button Grid.Column="1" Grid.Row="4" Margin="3"
-                    Content="0" FontSize="25"/>
+                    Content="0" FontSize="25" Name="zer" Click="Click" />
             <Button Grid.Column="2" Grid.Row="4" Margin="3"
-                    Content="+/-" FontSize="25"/>
+                    Content="+/-" FontSize="25" Name="swp" Click="Click" />
             <Button Grid.Column="3" Grid.Row="4" Margin="3"
-                    Content="=" FontSize="25"/>
+                    Content="=" FontSize="25" Name="equ" Click="Click" />
         </Grid>
     </DockPanel>
 </Window>
