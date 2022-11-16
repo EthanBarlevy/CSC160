@@ -141,8 +141,7 @@ namespace Calculator
                         { 
                             if(double.Parse(content) != 0)
                             {
-                                if(!CharExists(content, '-')) content = "-" + content;
-                                else if (CharExists(content, '-')) content = content.Replace('-', ' ');
+                                content = (double.Parse(content) * -1).ToString();
                             }
                         }
 
