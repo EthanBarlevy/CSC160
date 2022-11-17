@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPF.resources"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="resources" Height="500" Width="400">
+    <Window.Resources>
+        <sys:String x:Key="CompanyName">My company</sys:String>
+        <SolidColorBrush x:Key="CompanyColor" Color="#7da66a" />
+        <x:Array x:Key="employees" Type="sys:String">
+            <sys:String>paul</sys:String>
+            <sys:String>mark</sys:String>
+            <sys:String>jean</sys:String>
+        </x:Array>
+    </Window.Resources>
+    
+    <StackPanel Margin="10">
+        <TextBlock Text="{StaticResource CompanyName}" HorizontalAlignment="Center" 
+                   FontSize="32" Foreground="{StaticResource CompanyColor}" />
+    </StackPanel>
+</Window>

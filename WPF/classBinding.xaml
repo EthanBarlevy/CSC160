@@ -7,7 +7,17 @@
         mc:Ignorable="d"
         Title="classBinding" Height="450" Width="800">
     <Grid>
-        <Label Name="lblName" Content="Name" HorizontalAlignment="Left" />
-        <TextBox Name="txtname" Height="30" Width="150" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+            <Label Name="lblLastName" Content="Last Name" FontSize="24" HorizontalContentAlignment="Left" />
+            <Label Name="lblLNData" Content="{Binding Last}" FontSize="24" HorizontalContentAlignment="Left"/>
+            <Button Content="Do the thing" Click="Button_Click" />
+        </StackPanel>
     </Grid>
 </Window>

@@ -15,21 +15,13 @@ using System.Windows.Shapes;
 namespace WPF
 {
     /// <summary>
-    /// Interaction logic for classBinding.xaml
+    /// Interaction logic for resources.xaml
     /// </summary>
-    public partial class classBinding : Window
+    public partial class resources : Window
     {
-        private Person p;
-        public classBinding()
+        public resources()
         {
             InitializeComponent();
-            p = new Person();
-            this.DataContext = p;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            p.randomize();
         }
     }
 }
