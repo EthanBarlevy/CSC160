@@ -20,9 +20,18 @@ namespace DnDCharacterGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Character c;
+        Random r = new Random();
         public MainWindow()
         {
             InitializeComponent();
+            c = new Character(r);
+            this.DataContext = c;
+        }
+
+        private void Randomize_Click(object sender, RoutedEventArgs e)
+        {
+            c = new Character(r);
         }
     }
 }
