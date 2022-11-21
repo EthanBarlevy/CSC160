@@ -22,6 +22,7 @@ namespace DnDCharacterGenerator
     {
         private Character c;
         Random r = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace DnDCharacterGenerator
 
         private void Randomize_Click(object sender, RoutedEventArgs e)
         {
-            c = new Character(r);
+            c.randomize();
         }
     }
 }

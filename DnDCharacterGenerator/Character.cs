@@ -18,7 +18,7 @@ namespace DnDCharacterGenerator
         public string Name
         {
             get { return name; }
-            set { name = value; PropertyHasChanged("Last"); }
+            set { name = value; PropertyHasChanged("Name"); }
         }
 
         public int Age
@@ -61,8 +61,8 @@ namespace DnDCharacterGenerator
 
         private string[] Genders =
             {
-                "Male",
-                "Female",
+                "Cis-Gender Male",
+                "Cis-Gender Female",
                 "Non-Binary",
                 "Transgender Male",
                 "Transgender Female"
@@ -99,13 +99,22 @@ namespace DnDCharacterGenerator
 
         public Character(Random r)
         { 
-            
             name = Names[r.Next(0, Names.Length)];
             age = r.Next(5, 70);
             gender = Genders[r.Next(0, Genders.Length)];
             classs = Classes[r.Next(0, Classes.Length)];
             race = Races[r.Next(0, Races.Length)];
 
+        }
+
+        public void randomize()
+        {
+            Random r = new Random();
+            Name = Names[r.Next(0, Names.Length)];
+            Age = r.Next(5, 70);
+            Gender = Genders[r.Next(0, Genders.Length)];
+            Class = Classes[r.Next(0, Classes.Length)];
+            Race = Races[r.Next(0, Races.Length)];
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
