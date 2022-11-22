@@ -78,6 +78,7 @@ namespace DnDCharacterGenerator
                 "Monk",
                 "Paladin",
                 "Ranger",
+                "Rouge",
                 "Sorcerer",
                 "Warlock",
                 "Wizard",
