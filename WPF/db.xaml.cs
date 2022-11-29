@@ -32,9 +32,32 @@ namespace WPF
             Hashtable ht = new Hashtable();
             string sql;
             long lngReturn;
+            
+            ht.Clear();
+            ht.Add("@Name", "Johnny");
+            ht.Add("@Title", "Master");
+            sql = "Insert into Names (Name, Title) Values(@Name, @Title)";
+            //lngReturn = ExDB.ExecuteIt("CSC160", sql, ht);
 
-            sql = "Select ID, Name from Names";
+            ht.Add("@ID", 3);
+            sql = "Updatate Names set Name=@Name, Title=@Title Where ID=@ID";
+            lngReturn = ExDB.ExecuteIt("CSC160", sql, ht);
+
+            ht.Clear();
+            ht.Add("@ID", 2);
+            //sql = "Select ID, Name from Names where ID=@ID"; // and username=@unsername
+            sql = "Select * from Names";
             dt = ExDB.GetDataTable("CSC160", ht, sql);
+
+            /*if(dt.Rows.Count > 0 ) 
+            { 
+                DataRow dr;
+                dr = dt.Rows[0];
+                int intid = (int)dr["ID"];
+                lblLabel.Content = intid;
+            }*/
+
+
             dg.ItemsSource = dt.DefaultView;
         }
     }
