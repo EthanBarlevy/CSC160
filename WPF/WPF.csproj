@@ -23,4 +23,19 @@
     <Resource Include="Resources\help.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Names3.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Names3.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Names3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Names3.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

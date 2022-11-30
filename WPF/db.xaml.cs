@@ -21,6 +21,10 @@ namespace WPF
     /// </summary>
     public partial class db : Window
     {
+
+        Names3 ds = new Names3(); // name of the .xsd file (dataset)
+        Names3TableAdapters.NamesTableAdapter ad = new Names3TableAdapters.NamesTableAdapter();
+
         public db()
         {
             InitializeComponent();
@@ -36,12 +40,12 @@ namespace WPF
             ht.Clear();
             ht.Add("@Name", "Johnny");
             ht.Add("@Title", "Master");
-            sql = "Insert into Names (Name, Title) Values(@Name, @Title)";
+            //sql = "Insert into Names (Name, Title) Values(@Name, @Title)";
             //lngReturn = ExDB.ExecuteIt("CSC160", sql, ht);
 
             ht.Add("@ID", 3);
-            sql = "Updatate Names set Name=@Name, Title=@Title Where ID=@ID";
-            lngReturn = ExDB.ExecuteIt("CSC160", sql, ht);
+            //sql = "Updatate Names set Name=@Name, Title=@Title Where ID=@ID";
+            //lngReturn = ExDB.ExecuteIt("CSC160", sql, ht);
 
             ht.Clear();
             ht.Add("@ID", 2);
