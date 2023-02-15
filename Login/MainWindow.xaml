@@ -24,30 +24,30 @@
         <StackPanel Grid.Row="1" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Username:" Padding="10"/>
-                <TextBox x:Name="UsernameLogin" Text="" MinWidth="100"/>
+                <TextBox x:Name="UsernameLogin" Text="" MinWidth="100" FontSize="24" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Password: " Padding="10"/>
-                <TextBox x:Name="PasswordLogin" Text="" MinWidth="100"/>
+                <TextBox x:Name="PasswordLogin" Text="" MinWidth="100" FontSize="24"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Name:       " Padding="10"/>
-                <TextBox x:Name="NameCreate" Text="" MinWidth="100"/>
+                <TextBox x:Name="NameCreate" Text="" MinWidth="100" FontSize="24"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Username:" Padding="10"/>
-                <TextBox x:Name="UsernameCreate" Text="" MinWidth="100"/>
+                <TextBox x:Name="UsernameCreate" Text="" MinWidth="100" FontSize="24"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Password: " Padding="10"/>
-                <TextBox x:Name="PasswordCreate" Text="" MinWidth="100"/>
+                <TextBox x:Name="PasswordCreate" Text="" MinWidth="100" FontSize="24"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Email:       " Padding="10"/>
-                <TextBox x:Name="EmailCreate" Text="" MinWidth="100"/>
+                <TextBox x:Name="EmailCreate" Text="" MinWidth="100" FontSize="24"/>
             </StackPanel>
         </StackPanel>
 

@@ -35,14 +35,16 @@ namespace Login
             long lngReturn;
 
             ht.Clear();
-            ht.Add("@Username", "Master");
-            ht.Add("@Password", "Password");
+            ht.Add("@Username", UsernameLogin.Text);
+            ht.Add("@Password", PasswordLogin.Text);
 
             sql = "SELECT * FROM USERS WHERE Username = @Username AND Password = @Password";
             dt = ExDB.GetDataTable("AwesomeDB", ht, sql);
-            if (dt != null) 
+            if (dt.Rows.Count > 0) 
             {
                 MessageBox.Show("You have been logged in");
+                UsernameLogin.Text = "";
+                PasswordLogin.Text = "";
             }
             else 
             {
@@ -58,18 +60,23 @@ namespace Login
             long lngReturn;
 
             ht.Clear();
-            ht.Add("@Name", "Johnny");
-            ht.Add("@Username", "Master");
-            ht.Add("@Password", "Password");
-            ht.Add("@Email", "Email");
+            ht.Add("@Name", NameCreate.Text);
+            ht.Add("@Username", UsernameCreate.Text);
+            ht.Add("@Password", PasswordCreate.Text);
+            ht.Add("@Email", EmailCreate.Text);
 
             sql = "SELECT * FROM USERS WHERE Username = @Username or Email = @Email";
             dt = ExDB.GetDataTable("AwesomeDB", ht, sql);
 
-            if(dt == null) 
-            { 
+            if (dt.Rows.Count == 0 && NameCreate.Text != "" && UsernameCreate.Text != "" && PasswordCreate.Text != "" && EmailCreate.Text != "")
+            {
                 sql = "INSERT INTO USERS (Name, Username, Password, Email) Values(@Name, @Username, @Password, @Email)";
                 lngReturn = ExDB.ExecuteIt("AwesomeDB", sql, ht);
+                MessageBox.Show("Account Created");
+            }
+            else
+            {
+                MessageBox.Show("User already exists with that username or email or a field was left blank");
             }
         }
     }
